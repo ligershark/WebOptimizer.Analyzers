@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>WebOptimizer.Analyzers</id>
+    <id>LigerShark.WebOptimizer.Analyzers</id>
     <version>1.0.0-beta</version>
-    <title>WebOptimizer.Analyzers</title>
+    <title>LigerShark.WebOptimizer.Analyzers</title>
     <authors>Mads Kristensen</authors>
     <owners>Mads Kristensen</owners>
     <licenseUrl>https://github.com/ligershark/WebOptimizer.Analyzers/blob/master/LICENSE.txt</licenseUrl>
