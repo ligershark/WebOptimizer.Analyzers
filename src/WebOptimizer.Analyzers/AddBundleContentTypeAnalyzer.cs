@@ -18,13 +18,14 @@ namespace WebOptimizer.Analyzers
 
             if (arguments.Count > 1)
             {
-                Optional<object> value = context.SemanticModel.GetConstantValue(arguments[1].Expression);
+                ArgumentSyntax arg = arguments[1];
+                Optional<object> value = context.SemanticModel.GetConstantValue(arg.Expression);
 
                 if (value.HasValue && value.Value is string contentType && !IsValidContentType(contentType))
                 {
                     context.ReportDiagnostic(Diagnostic.Create(
                         _descriptor,
-                        invocation.GetLocation(),
+                        arg.GetLocation(),
                         contentType));
                 }
             }

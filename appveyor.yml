@@ -15,6 +15,8 @@ build_script:
   - dotnet restore src\WebOptimizer.Analyzers\WebOptimizer.Analyzers.csproj -v quiet
   - dotnet pack src\WebOptimizer.Analyzers\WebOptimizer.Analyzers.csproj -c Release
 
+test: off
+
 artifacts:
   - path: src\WebOptimizer.Analyzers\bin\**\*.nupkg
     name: NuGet package
