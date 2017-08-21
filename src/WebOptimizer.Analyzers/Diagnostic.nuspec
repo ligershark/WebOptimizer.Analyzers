@@ -2,17 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>WebOptimizer.Analyzers</id>
-    <version>1.0.0.0</version>
+    <version>1.0.0-beta</version>
     <title>WebOptimizer.Analyzers</title>
     <authors>Mads Kristensen</authors>
     <owners>Mads Kristensen</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <licenseUrl>https://github.com/ligershark/WebOptimizer.Analyzers/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/ligershark/WebOptimizer</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/ligershark/WebOptimizer/master/art/logo64x64.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>WebOptimizer.Analyzers</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>Copyright</copyright>
+    <copyright>Copyright Mads Kristensen</copyright>
     <tags>WebOptimizer.Analyzers, analyzers</tags>
     <developmentDependency>true</developmentDependency>
   </metadata>

@@ -14,11 +14,11 @@ namespace WebOptimizer.Analyzers
 
         protected override void Analyze(SyntaxNodeAnalysisContext context, InvocationExpressionSyntax invocation, IMethodSymbol method)
         {
-            var arguments = invocation.ArgumentList.Arguments;
+            SeparatedSyntaxList<ArgumentSyntax> arguments = invocation.ArgumentList.Arguments;
 
             if (arguments.Count > 0)
             {
-                var value = context.SemanticModel.GetConstantValue(arguments[0].Expression);
+                Optional<object> value = context.SemanticModel.GetConstantValue(arguments[0].Expression);
 
                 if (value.HasValue && value.Value is string route && !IsValidRoute(route))
                 {

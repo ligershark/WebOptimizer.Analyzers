@@ -14,11 +14,11 @@ namespace WebOptimizer.Analyzers
 
         protected override void Analyze(SyntaxNodeAnalysisContext context, InvocationExpressionSyntax invocation, IMethodSymbol method)
         {
-            var arguments = invocation.ArgumentList.Arguments;
+            SeparatedSyntaxList<ArgumentSyntax> arguments = invocation.ArgumentList.Arguments;
 
             if (arguments.Count > 1)
             {
-                var value = context.SemanticModel.GetConstantValue(arguments[1].Expression);
+                Optional<object> value = context.SemanticModel.GetConstantValue(arguments[1].Expression);
 
                 if (value.HasValue && value.Value is string contentType && !IsValidContentType(contentType))
                 {
@@ -35,7 +35,7 @@ namespace WebOptimizer.Analyzers
             if (string.IsNullOrEmpty(contentType))
                 return false;
 
-            var slash = contentType.IndexOf("/");
+            int slash = contentType.IndexOf("/");
 
             return slash > 0 && slash < contentType.Length - 1;
         }

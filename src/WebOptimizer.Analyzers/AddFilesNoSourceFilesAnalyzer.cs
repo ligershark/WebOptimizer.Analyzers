@@ -14,7 +14,7 @@ namespace WebOptimizer.Analyzers
 
         protected override void Analyze(SyntaxNodeAnalysisContext context, InvocationExpressionSyntax invocation, IMethodSymbol method)
         {
-            var arguments = invocation.ArgumentList.Arguments;
+            SeparatedSyntaxList<ArgumentSyntax> arguments = invocation.ArgumentList.Arguments;
 
             if (arguments.Count == 1)
             {

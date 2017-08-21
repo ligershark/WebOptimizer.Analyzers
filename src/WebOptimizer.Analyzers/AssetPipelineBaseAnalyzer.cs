@@ -24,7 +24,7 @@ namespace WebOptimizer.Analyzers
             context.RegisterSyntaxNodeAction(syntaxContext =>
             {
                 var invocation = (InvocationExpressionSyntax)syntaxContext.Node;
-                var symbolInfo = syntaxContext.SemanticModel.GetSymbolInfo(invocation, syntaxContext.CancellationToken);
+                SymbolInfo symbolInfo = syntaxContext.SemanticModel.GetSymbolInfo(invocation, syntaxContext.CancellationToken);
 
                 if (symbolInfo.Symbol?.Kind != SymbolKind.Method)
                 {
