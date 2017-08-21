@@ -12,11 +12,11 @@ install:
   - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path"
 
 build_script:
-  - dotnet restore -v quiet
-  - dotnet pack src\WebOptimizer.Analyzers\WebOptimizer.Analyzers.csproj
+  - dotnet restore src\WebOptimizer.Analyzers\WebOptimizer.Analyzers.csproj -v quiet
+  - dotnet pack src\WebOptimizer.Analyzers\WebOptimizer.Analyzers.csproj -c Release
 
 artifacts:
-  - path: src\WebOptimizer.Analyzers\bin\release\*.nupkg
+  - path: src\WebOptimizer.Analyzers\bin\**\*.nupkg
     name: NuGet package
 
 deploy:
