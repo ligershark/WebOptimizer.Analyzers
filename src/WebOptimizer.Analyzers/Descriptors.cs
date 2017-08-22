@@ -14,10 +14,9 @@ namespace WebOptimizer.Analyzers
 
         public static DiagnosticDescriptor ContentTypeWrongFormat => Generate(1002,
             "The content type is not a valid content type.",
-            "\"{0}\" is not a valid content type.",
-            DiagnosticSeverity.Warning);
+            "\"{0}\" is not a valid content type.");
 
-        private static DiagnosticDescriptor Generate(int id, string title, string messageFormat, DiagnosticSeverity severity = DiagnosticSeverity.Error)
+        private static DiagnosticDescriptor Generate(int id, string title, string messageFormat, DiagnosticSeverity severity = DiagnosticSeverity.Warning)
         {
             return new DiagnosticDescriptor(
                id: $"WO{id}",

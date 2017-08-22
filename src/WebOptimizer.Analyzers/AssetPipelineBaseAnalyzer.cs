@@ -39,7 +39,8 @@ namespace WebOptimizer.Analyzers
                     return;
                 }
 
-                if ((!methodSymbol.ReceiverType.Interfaces.Any(i =>
+                if (methodSymbol.ReceiverType == null ||
+                    (!methodSymbol.ReceiverType.Interfaces.Any(i =>
                      i.ContainingNamespace.Name == "WebOptimizer" &&
                      i.Name == "IAssetPipeline") &&
                      methodSymbol.ReceiverType.Name != "IAssetPipeline") ||

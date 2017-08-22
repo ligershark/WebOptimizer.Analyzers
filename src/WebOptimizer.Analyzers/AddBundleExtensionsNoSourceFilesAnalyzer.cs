@@ -27,7 +27,7 @@ namespace WebOptimizer.Analyzers
                 {
                     Optional<object> value = context.SemanticModel.GetConstantValue(arg.Expression);
 
-                    if (value.HasValue && value.Value == null || string.IsNullOrWhiteSpace(value.Value.ToString()))
+                    if (value.HasValue && (value.Value == null || string.IsNullOrWhiteSpace(value.Value?.ToString())))
                     {
                         context.ReportDiagnostic(Diagnostic.Create(_descriptor, arg.GetLocation()));
                     }
