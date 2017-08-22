@@ -21,20 +21,24 @@ namespace WebOptimizer.Analyzers
                 ArgumentSyntax arg = arguments[1];
                 Optional<object> value = context.SemanticModel.GetConstantValue(arg.Expression);
 
-                if (value.HasValue && value.Value is string contentType && !IsValidContentType(contentType))
+                if (value.HasValue && !IsValidContentType(value.Value))
                 {
                     context.ReportDiagnostic(Diagnostic.Create(
                         _descriptor,
                         arg.GetLocation(),
-                        contentType));
+                        value.Value ?? "null"));
                 }
             }
         }
 
-        private static bool IsValidContentType(string contentType)
+        public static bool IsValidContentType(object value)
         {
-            if (string.IsNullOrEmpty(contentType))
+            string contentType = value as string;
+
+            if (value == null || string.IsNullOrEmpty(contentType))
+            {
                 return false;
+            }
 
             int slash = contentType.IndexOf("/");
 

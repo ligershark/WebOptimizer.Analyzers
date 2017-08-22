@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 using System.Collections.Immutable;
+using System.Linq;
 
 namespace WebOptimizer.Analyzers
 {
@@ -20,10 +21,19 @@ namespace WebOptimizer.Analyzers
 
             if (method.Parameters.Length == 3 && arguments.Count == 2)
             {
-                context.ReportDiagnostic(Diagnostic.Create(
-                    _descriptor,
-                    invocation.GetLocation(),
-                    method.Name));
+                context.ReportDiagnostic(Diagnostic.Create(_descriptor, invocation.GetLocation()));
+            }
+            else if (method.Parameters.Length == 3 && arguments.Count >= 3)
+            {
+                foreach (ArgumentSyntax arg in arguments.Skip(2))
+                {
+                    Optional<object> value = context.SemanticModel.GetConstantValue(arg.Expression);
+
+                    if (value.HasValue && value.Value == null || string.IsNullOrWhiteSpace(value.Value.ToString()))
+                    {
+                        context.ReportDiagnostic(Diagnostic.Create(_descriptor, arg.GetLocation()));
+                    }
+                }
             }
         }
     }

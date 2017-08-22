@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>LigerShark.WebOptimizer.Analyzers</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>LigerShark.WebOptimizer.Analyzers</title>
     <authors>Mads Kristensen</authors>
     <owners>Mads Kristensen</owners>
     <licenseUrl>https://github.com/ligershark/WebOptimizer.Analyzers/blob/master/LICENSE.txt</licenseUrl>
-    <projectUrl>https://github.com/ligershark/WebOptimizer</projectUrl>
+    <projectUrl>https://github.com/ligershark/WebOptimizer.Analyzers</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/ligershark/WebOptimizer/master/art/logo64x64.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>WebOptimizer.Analyzers</description>
