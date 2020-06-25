@@ -6,7 +6,16 @@
         <DebugType>full</DebugType>
         <NuspecFile>Diagnostic.nuspec</NuspecFile>
         <NuspecBasePath>bin/$(Configuration)/netcoreapp3.0/</NuspecBasePath>
-    </PropertyGroup>
+    
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
 
     <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="2.9.4">
